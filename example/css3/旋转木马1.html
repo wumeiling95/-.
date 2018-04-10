@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            perspective: 1000px;
+            perspective-origin: 50% -500px;
+        }
+        #container{
+            width: 125px;
+            height: 125px;
+            margin: 100px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s ease;
+        }
+        #container img{
+            width: 125px;
+            height: 125px;
+            position: absolute;
+            transition: transform 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <script>
+        var oContainer = document.getElementById('container');
+       var count = 0;
+        var iNow = 0;
+        for(var i=0;i<9;i++){
+            var oImg = new Image();
+            oImg.onload = function(){
+                onloadSuccess();
+            }
+            oImg.src = "./照片墙-img/"+(i+1)+".jpg";
+            oContainer.appendChild(oImg);
+        }
+        oContainer.onclick = function(){
+            iNow++;
+            oContainer.style.transform = "rotateY("+iNow*40+"deg)";
+        }
+        function onloadSuccess(){
+               var aImg = oContainer.getElementsByTagName('img');
+            for(var i=0;i<aImg.length;i++){
+                aImg[i].style.transform = "rotateY("+i*40+"deg) translateZ(200px)";
+                aImg[i].style.transitionDelay = .01*i+"s";
+            }
+        }
+    </script>
+</body>
+</html>

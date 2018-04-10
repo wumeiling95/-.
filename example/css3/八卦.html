@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #content{
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000000;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            animation: rotate 2s linear infinite;
+        }
+        @keyframes rotate {
+            from{
+
+            }to{
+            transform: rotateZ(-360deg);
+                         }
+        }
+        #div1,#div2{
+            width: 100px;
+            height: 200px;
+            position: absolute;
+        }
+        #div1{
+            left: 0;
+        }
+        #div2{
+            background: #000;
+            left: 100px;
+        }
+        #div3,#div4{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        #div3{
+            background: #ffffff;
+            left: 50px;
+            top: 100px;
+        }
+        #div4{
+            background: #000;
+            left: 50px;
+        }
+        #div5,#div6{
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            position: absolute;
+        }
+        #div5{
+            background: #ffffff;
+            left: 95px;
+            top: 45px;
+        }
+        #div6{
+            background: #000;
+            left: 95px;
+            top: 145px;
+        }
+    </style>
+</head>
+<body>
+   <div id="content">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+         <div id="div4"></div>
+        <div id="div5"></div>
+        <div id="div6"></div>
+   </div>
+</body>
+</html>

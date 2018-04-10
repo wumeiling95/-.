@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #dial{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000000;
+            border-radius: 50%;
+            margin: 100px auto;
+            position: relative;
+            background: url("照片墙-img/css33.jpg");
+        }
+        #kedu li{
+            width: 2px;
+            height: 6px;
+            background: #000;
+            position: absolute;
+            left: 50%;
+            transform-origin: 0 100px;
+        }
+        #kedu li:nth-child(5n+1){
+            height: 12px;
+        }
+        #hour{
+            width: 6px;
+            height: 30px;
+            border-radius: 3px;
+            background: #ff0000;
+            position: absolute;
+            left: 97px;
+            top: 70px;
+            transform-origin: bottom;
+        }
+        #minet{
+            width: 4px;
+            height: 40px;
+            background: #00ff00;
+            border-radius: 2px;
+            position: absolute;
+            left: 98px;
+            top: 60px;
+            transform-origin: bottom;
+        }
+        #scend{
+            width: 2px;
+            height: 60px;
+            border-radius: 1px;
+            background: #ffff00;
+            position: absolute;
+            left: 99px;
+            top: 40px;
+            transform-origin: bottom;
+        }
+    </style>
+</head>
+<body>
+    <div id="dial">
+        <ul id="kedu">
+        </ul>
+        <div id="hour"></div>
+        <div id="minet"></div>
+        <div id="scend"></div>
+    </div>
+
+    <script>
+        var oKedu = document.getElementById('kedu');
+        var oHour = document.getElementById("hour");
+        var oMinut = document.getElementById('minet');
+        var oSecond = document.getElementById('scend');
+        var html = "";
+        for(var  i =0 ;i<60;i++){
+            html += "<li style='transform: rotate("+i*6+"deg)'></li>";
+        }
+        oKedu.innerHTML = html;
+         change();
+        function change(){
+            var now = new Date(),
+                    second = now.getSeconds(),
+                    minut = now.getMinutes() + second/60,
+                    hour = now.getHours() + minut/60;
+            oHour.style.transform = "rotate("+hour*30+"deg)";
+            oMinut.style.transform = "rotate("+minut*6+"deg)";
+            oSecond.style.transform = "rotate("+second*6+"deg)";
+        }
+     setInterval(change,1000);
+    </script>
+</body>
+</html>
